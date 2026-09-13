@@ -13,9 +13,12 @@
     isNormalUser = true;
     description = "Emily";
     extraGroups = [ "networkmanager" "wheel" ];
-    initialPassword = "password"; # Change this!
+    initialPassword = "password";
   };
-
+  
+  # X11
+  #services.xserver.enable = true;
+  
   # Enable SSH for convenience
   services.openssh.enable = true;
 
