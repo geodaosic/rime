@@ -1,7 +1,7 @@
 { config, pkgs, pkgs-unstable, ... }:
 
 {
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
   
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -11,7 +11,7 @@
 
   users.users.emily = {
     isNormalUser = true;
-    description = "Emily";
+    description = "emily";
     extraGroups = [ "networkmanager" "wheel" ];
     initialPassword = "password";
   };
@@ -28,7 +28,10 @@
     wget
     git
   ];
-
+  
+  environment.variables.EDITOR = "vim";
+  
+  programs.sway.enable = true;
   # Allow unfree packages if needed
   nixpkgs.config.allowUnfree = true;
 }
