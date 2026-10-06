@@ -3,6 +3,8 @@
 {
   imports = [
     ./sway.nix
+    ./i3status-rust.nix
+    ./bash.nix
   ];
 
   home.username = "emily";
@@ -11,11 +13,7 @@
   home.packages = [
     pkgs.firefox
     pkgs.kitty
+    pkgs.fastfetch
   ];
-
-
-  programs.i3status-rust = {
-    enable = true;
-  };
 
 }

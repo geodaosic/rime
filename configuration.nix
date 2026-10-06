@@ -13,7 +13,7 @@
     isNormalUser = true;
     description = "emily";
     extraGroups = [ "networkmanager" "wheel" ];
-    initialPassword = "password";
+    initialPassword = "";
   };
   
   # X11
@@ -30,7 +30,12 @@
   ];
   
   environment.variables.EDITOR = "vim";
-  
+ 
+  #autostart sway on login
+  environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
+
   programs.sway.enable = true;
   # Allow unfree packages if needed
   nixpkgs.config.allowUnfree = true;
